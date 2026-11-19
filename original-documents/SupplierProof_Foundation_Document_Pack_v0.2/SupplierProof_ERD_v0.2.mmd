@@ -1,0 +1,27 @@
+erDiagram
+    ORGANIZATION ||--o{ MEMBERSHIP : has
+    USER ||--o{ MEMBERSHIP : joins
+    ORGANIZATION ||--o{ SUPPLIER : manages
+    SUPPLIER ||--o{ SUPPLIER_SITE : operates
+    ORGANIZATION ||--o{ PRODUCT : owns
+    PRODUCT ||--o{ BATCH : produces
+    PRODUCT }o--o{ MATERIAL : contains
+    SUPPLIER }o--o{ MATERIAL : supplies
+    EVIDENCE_DOCUMENT ||--|{ EVIDENCE_VERSION : versions
+    EVIDENCE_VERSION ||--o{ EVIDENCE_LINK : linked_by
+    BUYER_REQUEST ||--|{ REQUIREMENT : contains
+    REQUIREMENT ||--o{ EVIDENCE_LINK : satisfied_by
+    EVIDENCE_VERSION ||--o{ REVIEW_DECISION : reviewed_as
+    REQUIREMENT ||--o{ REVIEW_DECISION : receives
+    SUPPLIER ||--o| EVIDENCE_VAULT : owns
+    EVIDENCE_VAULT ||--o{ VAULT_ITEM : contains
+    EVIDENCE_VERSION ||--o{ VAULT_ITEM : references
+    VAULT_ITEM ||--o{ SHARE_GRANT : shared_through
+    EVIDENCE_VERSION ||--o{ PROVENANCE_RECORD : has
+    EVIDENCE_VERSION ||--o{ VERIFICATION_CHECK : checked_by
+    REQUIREMENT ||--o{ CLARIFICATION_THREAD : discusses
+    CLARIFICATION_THREAD ||--o{ CLARIFICATION_MESSAGE : contains
+    EVIDENCE_PACK ||--|{ PACK_ITEM : snapshots
+    EVIDENCE_VERSION ||--o{ PACK_ITEM : included_as
+    SHARE_GRANT ||--o{ EVIDENCE_PACK : grants_access
+    ORGANIZATION ||--o{ AUDIT_EVENT : records
