@@ -1,26 +1,171 @@
-@import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@custom-variant dark (&:is(.dark *));
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
+  --font-sans: var(--font-inter);
   --font-mono: var(--font-geist-mono);
+
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+:root {
+  color-scheme: light;
+
+  --background: #f4f7f6;
+  --foreground: #182b32;
+
+  --card: #ffffff;
+  --card-foreground: #182b32;
+
+  --popover: #ffffff;
+  --popover-foreground: #182b32;
+
+  --primary: #102c3a;
+  --primary-foreground: #ffffff;
+
+  --secondary: #e8f0ed;
+  --secondary-foreground: #24443f;
+
+  --muted: #edf2f0;
+  --muted-foreground: #647570;
+
+  --accent: #e1efeb;
+  --accent-foreground: #167d78;
+
+  --destructive: #c74747;
+
+  --border: #dce6e2;
+  --input: #dce6e2;
+  --ring: #167d78;
+
+  --chart-1: #167d78;
+  --chart-2: #102c3a;
+  --chart-3: #d9a441;
+  --chart-4: #7b9b91;
+  --chart-5: #a5b7b0;
+
+  --radius: 0.625rem;
+
+  --sidebar: #102c3a;
+  --sidebar-foreground: #eaf1ef;
+  --sidebar-primary: #167d78;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #1d3d49;
+  --sidebar-accent-foreground: #ffffff;
+  --sidebar-border: #294653;
+  --sidebar-ring: #5bb6a8;
+}
+
+.dark {
+  color-scheme: dark;
+
+  --background: #101d23;
+  --foreground: #eaf1ef;
+
+  --card: #17272e;
+  --card-foreground: #eaf1ef;
+
+  --popover: #17272e;
+  --popover-foreground: #eaf1ef;
+
+  --primary: #5bb6a8;
+  --primary-foreground: #102c3a;
+
+  --secondary: #23383e;
+  --secondary-foreground: #eaf1ef;
+
+  --muted: #23343a;
+  --muted-foreground: #a0b2ac;
+
+  --accent: #254943;
+  --accent-foreground: #8bd2c4;
+
+  --destructive: #e06a6a;
+
+  --border: #30454b;
+  --input: #30454b;
+  --ring: #5bb6a8;
+
+  --chart-1: #5bb6a8;
+  --chart-2: #8ba9bd;
+  --chart-3: #e1b65f;
+  --chart-4: #8caaa0;
+  --chart-5: #b1c1bb;
+
+  --sidebar: #0b1920;
+  --sidebar-foreground: #eaf1ef;
+  --sidebar-primary: #5bb6a8;
+  --sidebar-primary-foreground: #102c3a;
+  --sidebar-accent: #1d343c;
+  --sidebar-accent-foreground: #ffffff;
+  --sidebar-border: #29404a;
+  --sidebar-ring: #5bb6a8;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
   }
-}
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  html {
+    @apply font-sans;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    min-height: 100vh;
+  }
+
+  button,
+  input,
+  textarea,
+  select {
+    font: inherit;
+  }
 }
