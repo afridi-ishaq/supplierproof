@@ -83,7 +83,6 @@ export default function Home() {
               Awaiting initial setup
             </span>
           </div>
-          <input type="text" placeholder="Search metrics..." className="bg-background border border-input placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2" />
 
           <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
             {metrics.map((metric) => {
